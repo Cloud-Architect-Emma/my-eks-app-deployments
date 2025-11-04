@@ -1,0 +1,17 @@
+name: CI for Order Service
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests (add later if needed)
+        run: echo "No tests yet"  # Placeholder
+      - name: Build Docker image
+        run: docker build -t order-service .
