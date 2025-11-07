@@ -1,18 +1,19 @@
-# Use Node.js base image
-FROM node:20-alpine
+# 1️⃣ Build stage
+FROM node:20-alpine as build
 
-# Set working directory
 WORKDIR /app
-
-# Copy package.json and install dependencies
 COPY package*.json ./
 RUN npm install
-
-# Copy all files
 COPY . .
+RUN npm run build          # builds your Vite app to /app/dist
 
-# Expose service port
-EXPOSE 3001
+# 2️⃣ Serve stage
+FROM nginx:stable-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Start service
-CMD ["npm", "start"]
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
+

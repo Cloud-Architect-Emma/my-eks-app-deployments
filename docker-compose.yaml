@@ -1,31 +1,47 @@
 version: '3'
+
 services:
+  frontend:
+    build:
+      context: ./frontend           # Path to your frontend folder
+      dockerfile: Dockerfile        # Dockerfile we wrote for Nginx static build
+    ports:
+      - "3001:80"                   # Host 3001 -> Container 80
+    depends_on:
+      - inventory-service
+      - orders-service
+      - catalog-service
+      - payment-service
+      - shipping-service
+      - feedback-service
+
   inventory-service:
     build: ./services/inventory-service
     ports:
-      - "3001:3001"
+      - "3002:3002"
 
   orders-service:
     build: ./services/orders-service
     ports:
-      - "3002:3002"
+      - "3003:3003"
 
   catalog-service:
     build: ./services/catalog-service
     ports:
-      - "3003:3003"
+      - "3004:3004"
 
   payment-service:
     build: ./services/payment-service
     ports:
-      - "3004:3004"
+      - "3005:3005"
 
   shipping-service:
     build: ./services/shipping-service
     ports:
-      - "3005:3005"
+      - "3006:3006"
 
   feedback-service:
     build: ./services/feedback-service
     ports:
-      - "3006:3006"
+      - "3007:3007"
+
