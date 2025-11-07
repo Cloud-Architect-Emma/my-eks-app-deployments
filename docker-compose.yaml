@@ -1,0 +1,31 @@
+version: '3'
+services:
+  inventory-service:
+    build: ./services/inventory-service
+    ports:
+      - "3001:3001"
+
+  orders-service:
+    build: ./services/orders-service
+    ports:
+      - "3002:3002"
+
+  catalog-service:
+    build: ./services/catalog-service
+    ports:
+      - "3003:3003"
+
+  payment-service:
+    build: ./services/payment-service
+    ports:
+      - "3004:3004"
+
+  shipping-service:
+    build: ./services/shipping-service
+    ports:
+      - "3005:3005"
+
+  feedback-service:
+    build: ./services/feedback-service
+    ports:
+      - "3006:3006"

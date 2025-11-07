@@ -1,21 +1,18 @@
-# Use Node.js 16 Alpine as a lightweight base image
-FROM node:16-alpine
+# Use Node.js base image
+FROM node:20-alpine
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package.json and install dependencies
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy application source code
-COPY src/ ./src/
+# Copy all files
+COPY . .
 
-# Expose application port
-EXPOSE 1000
+# Expose service port
+EXPOSE 3001
 
-# Start the application
-CMD ["node", "src/app.js"]
-
+# Start service
+CMD ["npm", "start"]
