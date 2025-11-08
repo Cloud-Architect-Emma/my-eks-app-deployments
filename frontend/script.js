@@ -1,19 +1,22 @@
-function callService(service) {
-  fetch(`http://localhost:${getPort(service)}/${service}`)
+function goToService(service) {
+  const urls = {
+    orders: 'http://localhost:3001/api/orders',
+    payment: 'http://localhost:3004/api/payment',
+    shipping: 'http://localhost:3002/api/shipping',
+    catalog: 'http://localhost:3003/api/catalog',
+    feedback: 'http://localhost:3006/api/feedback'
+  };
+
+  fetch(urls[service])
     .then(res => res.json())
     .then(data => {
-      document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+      document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+    })
+    .catch(err => {
+      document.getElementById('response').innerText = `Error: ${err.message}`;
     });
 }
 
-function getPort(service) {
-  const ports = {
-    catalog: 3001,
-    inventory: 3002,
-    orders: 3003,
-    payment: 3004,
-    shipping: 3005,
-    feedback: 3006
-  };
-  return ports[service];
+function explore() {
+  alert("Explore our banking services and discover your financial potential!");
 }

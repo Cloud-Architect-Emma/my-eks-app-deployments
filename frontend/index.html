@@ -8,47 +8,32 @@
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="Bank Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Accounts</a></li>
-        <li><a href="#">Loans</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><button class="login-btn">Login</button></li>
-      </ul>
-    </nav>
+    <img src="assets/logo.png" alt="Enterprise Bank Logo" class="logo" />
+    <h1>Enterprise Bank</h1>
   </header>
 
   <section class="hero">
-    <img src="assets/hero.jpg" alt="Banking Hero" />
+    <img src="assets/hero.jpg" alt="Banking Hero" class="hero-image" />
     <div class="hero-text">
       <h1>Welcome to Enterprise Bank</h1>
       <p>Your trusted partner in financial growth.</p>
-      <button>Open an Account</button>
+      <button onclick="explore()">Explore Services</button>
     </div>
   </section>
 
-  <section class="features">
-    <div class="feature">
-      <h2>Secure Banking</h2>
-      <p>Advanced encryption and fraud protection.</p>
-    </div>
-    <div class="feature">
-      <h2>24/7 Support</h2>
-      <p>We're here for you anytime, anywhere.</p>
-    </div>
-    <div class="feature">
-      <h2>Mobile Access</h2>
-      <p>Bank on the go with our mobile app.</p>
-    </div>
-  </section>
+  <nav>
+    <button onclick="goToService('orders')">Orders</button>
+    <button onclick="goToService('payment')">Payment</button>
+    <button onclick="goToService('shipping')">Shipping</button>
+    <button onclick="goToService('catalog')">Catalog</button>
+    <button onclick="goToService('feedback')">Feedback</button>
+  </nav>
 
-  <footer>
-    <p>&copy; 2025 Enterprise Bank. All rights reserved.</p>
-  </footer>
+  <section id="output">
+    <h2>Service Output</h2>
+    <div id="response"></div>
+  </section>
 
   <script src="script.js"></script>
 </body>
 </html>
-
