@@ -22,3 +22,10 @@ serviceAccount:
   create: true
   annotations: {}
   name: ""
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
