@@ -19,7 +19,7 @@ Full-stack microservices on AWS EKS, including API gateway, user, product, and n
 Services: API Gateway, User Service, Product Service, Notification Service.
 Flow: GitHub → GitHub Actions → Docker Hub → ArgoCD → EKS → Prometheus/Grafana | Splunk.
 
-# **Key Features***
+# **Key Features**
 Modular microservices with REST APIs.
 CI/CD: Automated builds, Trivy scans, SonarQube checks.
 Monitoring: Prometheus metrics, Grafana dashboards.
